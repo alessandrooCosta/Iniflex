@@ -1,8 +1,11 @@
 import java.math.BigDecimal;
+import java.sql.SQLSyntaxErrorException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +25,35 @@ public class Main {
         for(Funcionario funcionario : lista){
             System.out.println(funcionario);
         }
-        
-    }
-    }
+        System.out.println("");
+        System.out.println("Lista a após atualização de 10% do salario: ");
+        for(Funcionario funcionario : lista){
+            System.out.println(funcionario);
+        }
+        //3.5 - 3.6
+        System.out.println("teste:");
+        Map<String, List<Funcionario>> map = new HashMap<>();
+        for(Funcionario funcionario : lista) {
+            String funcao = funcionario.getFuncao();
+            // abaixo foi utilizado containsKey
+            if (!map.containsKey(funcao)) {
+                map.put(funcao, new ArrayList<>() /*lista vazia*/);
+            }
+            map.get(funcao).add(funcionario);
+            //System.out.println(map);
+        }
+        System.out.println(map);
+        /*
+        O método containsKey em Java é utilizado para verificar se um Map contém uma determinada chave.
+        Ele é muito útil quando você precisa saber se uma chave específica já está presente no Map antes de realizar alguma operação, como adicionar ou atualizar um valor.
+        */
+
+
+        //3.8
+
+
+
+
+                }
+            }
+

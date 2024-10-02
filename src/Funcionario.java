@@ -28,12 +28,22 @@ public class Funcionario extends Pessoa {
         return numeroFormatado;
     }
 
+    public String getNovSalario(){
+        BigDecimal aumento = new BigDecimal("0.10");
+        BigDecimal resultado = salario.multiply(aumento);
+        BigDecimal novoSalario = salario.add(resultado);
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+        String numeroFormatado = decimalFormat.format(novoSalario);
+        return numeroFormatado;
+    }
+
     @Override
     public String toString() {
-
         return  " Nome: '" + getNome()+
                 " Data Nascimento: " + getDataFormatada()+
                 " Salario: " + getSalarioFormatado() +
+                " Novo Salario: " + getNovSalario() +
                 " Funcao: " + funcao;
     }
+
 }
